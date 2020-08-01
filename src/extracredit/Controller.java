@@ -12,21 +12,31 @@ public class Controller {
     
     public void start(){
         model.generateThrows();
+        
         int[] computer = model.getMostCommontKind(model.getComputerScore());
         int[] player = model.getMostCommontKind(model.getPlayerScore());
         
         if(computer[1] > player[1]){
-            view.computerWins(computer[1]);
+            view.computerWins(computer);
         }else if(computer[1] < player[1]){
-            view.playerWins(player[1]);
+            view.playerWins(player);
         }else{
-            view.tie();
+            if(computer[0] > player[0]){
+                view.computerWins(computer);
+            }else if(player[0] > computer[0]){
+                view.playerWins(player);
+            }else{
+                view.tie();
+            }
         }
+        
+        System.out.println("Computer: " + computer[0] + ":" + computer[1]);
+        System.out.println("Player: " + player[0] + ":" + player[1]);
+        
         
         //System.out.println(Arrays.toString(model.getComputerScore()));
         //System.out.println(Arrays.toString(model.getPlayerScore()));
-        
-        
+
         //System.out.println(Arrays.toString(computer));
         //System.out.println(Arrays.toString(player));
         
