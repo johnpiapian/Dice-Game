@@ -49,7 +49,6 @@ public class Model {
     
     
     //setter and getter
-    
     public int getScore() {
         return score;
     }    
@@ -81,6 +80,4 @@ public class Model {
     public void setPlayerScore(int[] playerScore) {
         this.playerScore = playerScore;
     }
-    
-    
 }
