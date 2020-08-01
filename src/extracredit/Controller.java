@@ -1,15 +1,9 @@
 package extracredit;
 
-import java.util.Arrays;
-
-/**
- *
- * @author student
- */
 public class Controller {
     
-    private Model model;
-    private View view;
+    private final Model model;
+    private final View view;
     
     public Controller(Model m, View v){
         this.model = m;

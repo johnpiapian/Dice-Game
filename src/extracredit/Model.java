@@ -1,9 +1,5 @@
 package extracredit;
 
-/**
- *
- * @author student
- */
 public class Model {
     
     private int score = 0, arrayLength = 5;

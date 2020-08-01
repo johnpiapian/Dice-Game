@@ -1,9 +1,5 @@
 package extracredit;
 
-/**
- *
- * @author student
- */
 public class ExtraCredit {
 
     /**
