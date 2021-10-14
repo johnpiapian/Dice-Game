@@ -1,7 +1,6 @@
 package extracredit;
 
 public class View {
-    
     private final Model m;
     
     public View(Model m){

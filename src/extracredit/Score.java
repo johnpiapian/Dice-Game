@@ -5,7 +5,7 @@ public class Score {
     private int[] score;
     
     public Score(){
-        this(0);
+        this(5);
     }
     
     public Score(int arrlen){

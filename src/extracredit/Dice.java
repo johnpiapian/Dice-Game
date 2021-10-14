@@ -1,7 +1,6 @@
 package extracredit;
 
 public class Dice {
-    
     private int value;
     
     public Dice(){

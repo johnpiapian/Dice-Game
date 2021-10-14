@@ -1,7 +1,6 @@
 package extracredit;
 
 public class Model {
-    
     private int length = 5;
     private Score computer = new Score(length);
     private Score player = new Score(length);
@@ -26,6 +25,14 @@ public class Model {
     
     public Score getComputer(){
         return this.computer;
+    }
+    
+    public int[] getComputerResult(){
+        return getMostCommontKind(computer.getScore());
+    }
+    
+    public int[] getPlayerResult(){
+        return getMostCommontKind(player.getScore());
     }
     
     private void generateThrows(){
@@ -55,15 +62,4 @@ public class Model {
         
         return new int[]{countOfAkind,valueOfTheKind};
     }
-    
-    public int[] getComputerResult(){
-        return getMostCommontKind(computer.getScore());
-    }
-    
-    public int[] getPlayerResult(){
-        return getMostCommontKind(player.getScore());
-    }
-    
-    
-    
 }

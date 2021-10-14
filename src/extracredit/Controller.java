@@ -1,7 +1,6 @@
 package extracredit;
 
 public class Controller {
-    
     private final Model model;
     private final View view;
     
@@ -30,10 +29,6 @@ public class Controller {
                view.tie(); 
             }
         }
-        
-        // Testing/debugging
-        //System.out.println("Computer: " + computer[0] + ":" + computer[1]);
-        //System.out.println("Player: " + player[0] + ":" + player[1]);
     }
 
 }
