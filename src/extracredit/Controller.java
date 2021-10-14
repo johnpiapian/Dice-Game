@@ -22,9 +22,9 @@ public class Controller {
             view.playerWins();
         }else{ // compare by the value of the kind
             if(computer[1] > player[1]){ 
-                view.playerWins();
-            }else if(player[1] > computer[1]){
                 view.computerWins();
+            }else if(player[1] > computer[1]){
+                view.playerWins();
             }else{
                view.tie(); 
             }

@@ -1,7 +1,6 @@
 package extracredit;
 
 public class Score {
-    private int arrayLength;
     private int[] score;
     
     public Score(){
@@ -9,29 +8,27 @@ public class Score {
     }
     
     public Score(int arrlen){
-        setArrayLength(arrlen);
-        setScore(new int[getArrayLength()]);
+        setScore(new int[arrlen]);
     }
 
     // Getters & Setters
-    public int getArrayLength() {
-        return arrayLength;
+    public int getArrLength(){
+        return getScore().length;
     }
-
-    private void setArrayLength(int arrayLength) {
-        this.arrayLength = arrayLength;
-    }
-
+    
     public int[] getScore() {
         return score;
     }
 
-    public void setScore(int[] score) {
+    private void setScore(int[] score) {
         this.score = score;
     }
     
     public void setScoreByIndex(int index, int value){
-        this.score[index] = value;
+        if(index > -1 && index < getScore().length)
+            this.score[index] = value;
+        else
+            throw new IllegalArgumentException("Check your index size!");
     }
     
     

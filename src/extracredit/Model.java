@@ -2,9 +2,9 @@ package extracredit;
 
 public class Model {
     private int length = 5;
-    private Score computer = new Score(length);
-    private Score player = new Score(length);
-    private Dice dice = new Dice();
+    private final Score computer = new Score(length);
+    private final Score player = new Score(length);
+    private final Dice dice = new Dice();
     
     public Model(){
         generateThrows();
@@ -13,10 +13,6 @@ public class Model {
     // setters and getters
     public int getLength(){
         return this.length;
-    }
-    
-    private void setLength(int length){
-        this.length = length;
     }
     
     public Score getPlayer(){
