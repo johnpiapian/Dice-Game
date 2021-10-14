@@ -11,28 +11,27 @@ public class Controller {
     }
     
     public void start(){
-        model.generateThrows();
+        int[] computer = model.getComputerResult();
+        int[] player = model.getPlayerResult();
         
-        int[] computer = model.getMostCommontKind(model.getComputerScore());
-        int[] player = model.getMostCommontKind(model.getPlayerScore());
-        
+        view.displayResult();
         
         // Determine winner 1) by repeated times 2) if tie by value
-        if(computer[0] > player[0]){ // by no of times repeatead
-            view.computerWins(computer);
+        if(computer[0] > player[0]){ // compare by the no. of times repeatead
+            view.computerWins();
         }else if(player[0] > computer[0]){
-            view.playerWins(player);
-        }else{
-            if(computer[1] > player[1]){ // by value of the kind
-                view.computerWins(computer);
+            view.playerWins();
+        }else{ // compare by the value of the kind
+            if(computer[1] > player[1]){ 
+                view.playerWins();
             }else if(player[1] > computer[1]){
-                view.playerWins(player);
+                view.computerWins();
             }else{
                view.tie(); 
             }
         }
         
-        // Important for debugging
+        // Testing/debugging
         //System.out.println("Computer: " + computer[0] + ":" + computer[1]);
         //System.out.println("Player: " + player[0] + ":" + player[1]);
     }

@@ -2,39 +2,48 @@ package extracredit;
 
 public class Model {
     
-    private int score = 0, arrayLength = 5;
-    private int[] computerScore = new int[arrayLength];
-    private int[] playerScore = new int[arrayLength];
+    private int length = 5;
+    private Score computer = new Score(length);
+    private Score player = new Score(length);
+    private Dice dice = new Dice();
     
-    public int getRandom(int min, int max){
-        return (int)(Math.random() * (max + 1 - min)) + min;
+    public Model(){
+        generateThrows();
     }
     
-    public int rollDice(){
-        return getRandom(1, 6);
+    // setters and getters
+    public int getLength(){
+        return this.length;
     }
     
-    public void generateThrows(){
-        for(int i=0; i < this.getArrayLength(); i++){
-            computerScore[i] = this.rollDice();
-            playerScore[i] = this.rollDice();
-            System.out.println(computerScore[i]+":"+playerScore[i]);
+    private void setLength(int length){
+        this.length = length;
+    }
+    
+    public Score getPlayer(){
+        return this.player;
+    }
+    
+    public Score getComputer(){
+        return this.computer;
+    }
+    
+    private void generateThrows(){
+        for(int i=0; i < getLength(); i++){
+            computer.setScoreByIndex(i, dice.roll().getValue());
+            player.setScoreByIndex(i, dice.roll().getValue());
         }
     }
     
-    public int[] getMostCommontKind(int[] score){
+    private int[] getMostCommontKind(int[] scores){
         int[] compare = new int[7];
+        int countOfAkind = 0, valueOfTheKind = 0; // times repeated, value of the number
         
         // store the number of times each number(on the dice, 1-6) is repeated in compare[]
         // e.g if 1 & 3 are repeated 2 times -> [0,2,0,2,0,0,0]
-        for(int i=0; i<score.length; i++){
-            compare[score[i]] += 1;
+        for(int i=0; i<scores.length; i++){
+            compare[scores[i]] += 1;
         }
-        
-        //System.out.println(Arrays.toString(compare));
-        
-        int countOfAkind = 0; //times repeated
-        int valueOfTheKind = 0; //value of the number
         
         // finding the times repeated and the value of the number
         for(int i=0; i<compare.length; i++) {
@@ -44,40 +53,17 @@ public class Model {
             }
         }
         
-        return new int[]{ countOfAkind, valueOfTheKind};
+        return new int[]{countOfAkind,valueOfTheKind};
+    }
+    
+    public int[] getComputerResult(){
+        return getMostCommontKind(computer.getScore());
+    }
+    
+    public int[] getPlayerResult(){
+        return getMostCommontKind(player.getScore());
     }
     
     
-    //setter and getter
-    public int getScore() {
-        return score;
-    }    
     
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getArrayLength() {
-        return arrayLength;
-    }
-
-    public void setArrayLength(int arrayLength) {
-        this.arrayLength = arrayLength;
-    }
-
-    public int[] getComputerScore() {
-        return computerScore;
-    }
-
-    public void setComputerScore(int[] computerScore) {
-        this.computerScore = computerScore;
-    }
-
-    public int[] getPlayerScore() {
-        return playerScore;
-    }
-
-    public void setPlayerScore(int[] playerScore) {
-        this.playerScore = playerScore;
-    }
 }
